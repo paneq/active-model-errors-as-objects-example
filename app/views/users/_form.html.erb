@@ -1,0 +1,25 @@
+<%= form_for(@user) do |f| %>
+
+    <fieldset>
+    <div class="clearfix <%= @user.errors[:login].present? ? :error : nil %>">
+      <%= f.label :login %><br />
+      <div class="input">
+        <span class="help-block">
+          Your login. You know... login.
+        </span>
+
+        <%= f.text_field :login, :class => "xxlarge" %>
+
+        <% @user.errors[:login].each do |err| %>
+          <span class="help-block">
+            <p><%= err %></p>
+          </end>
+        <% end%>
+      </div>
+    </div>
+ </fieldset>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
