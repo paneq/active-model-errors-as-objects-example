@@ -12,7 +12,7 @@
 
         <% @user.errors[:login].each do |err| %>
           <span class="help-block">
-            <p><%= err %></p>
+            <p><%= error_message(err) %></p>
           </end>
         <% end%>
       </div>
