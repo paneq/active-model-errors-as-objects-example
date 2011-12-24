@@ -1,14 +1,7 @@
-require 'invalid_length_error'
+require 'better_length_validator'
 
 class User < ActiveRecord::Base
 
-  validate :login_length
-
-  private
-
-  def login_length
-    return if login.size >= 2 && login.size <= 10
-    errors.add(:login, InvalidLengthError.new(2, 10, login.size))
-  end
+  better_validates_length_of :login, :in => 2..10
 
 end
