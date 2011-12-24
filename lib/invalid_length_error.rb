@@ -22,4 +22,14 @@ class InvalidLengthError
   def empty?
     false
   end
+
+  def as_json(options = {})
+    {
+      code: code,
+      description: description,
+      min: min,
+      max: max,
+      current: current
+    }
+  end
 end
